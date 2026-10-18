@@ -1,8 +1,8 @@
-import type { Claim, GameState, Line, ProbeKey, SuspectId, TurnRequest, TurnResponse } from '../shared/types'
-import { MINDS, PLACES, PROBE_OPTIONS } from './_minds'
-import { addClaim, addEvidence, applyStrain, charge } from './_judge'
-import { contradictions, STRAIN_ORDER } from '../shared/judge'
-import { decide, speak, evidenceProbe, evidenceText } from './_models'
+import type { Claim, GameState, Line, ProbeKey, SuspectId, TurnRequest, TurnResponse } from '../shared/types.js'
+import { MINDS, PLACES, PROBE_OPTIONS } from './_minds.js'
+import { addClaim, addEvidence, applyStrain, charge } from './_judge.js'
+import { contradictions, STRAIN_ORDER } from '../shared/judge.js'
+import { decide, speak, evidenceProbe, evidenceText } from './_models.js'
 
 const label = (list: { key: string; desc: string }[], key: string) =>
   list.find((o) => o.key === key)?.desc ?? key

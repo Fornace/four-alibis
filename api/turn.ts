@@ -1,6 +1,6 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node'
-import { runTurn } from './_run'
-import type { TurnRequest } from '../shared/types'
+import { runTurn } from './_run.js'
+import type { TurnRequest } from '../shared/types.js'
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   if (req.method !== 'POST') {

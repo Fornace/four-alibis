@@ -1,4 +1,4 @@
-import type { Claim, Contradiction } from './types'
+import type { Claim, Contradiction } from './types.js'
 
 export const WINDOW_START = 2305
 export const WINDOW_END = 2320

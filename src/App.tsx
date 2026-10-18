@@ -197,7 +197,7 @@ export default function App() {
       <div className="board">
         <Rail state={state} selected={state.suspectId} onSelect={select} />
         <div className="recorder" ref={scroller}>
-          <Recorder log={log} busy={busy} pending={pending} />
+          <Recorder log={log} busy={busy} pending={pending} pronoun={suspect.pronoun} />
         </div>
         <RecordPanel
           state={state}

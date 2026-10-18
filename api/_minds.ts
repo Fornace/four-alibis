@@ -1,4 +1,4 @@
-import type { ProbeKey, SuspectId } from '../shared/types'
+import type { ProbeKey, SuspectId } from '../shared/types.js'
 
 /**
  * The hidden side of the case. Never sent to the browser wholesale: the client

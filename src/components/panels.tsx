@@ -92,7 +92,17 @@ const NOTE_TAG: Record<string, string> = {
   broken: 'Broken',
 }
 
-export function Recorder({ log, busy, pending }: { log: Line[]; busy: boolean; pending: string | null }) {
+export function Recorder({
+  log,
+  busy,
+  pending,
+  pronoun,
+}: {
+  log: Line[]
+  busy: boolean
+  pending: string | null
+  pronoun: string
+}) {
   return (
     <div className="stack">
       {log.length === 0 && (
@@ -163,7 +173,7 @@ export function Recorder({ log, busy, pending }: { log: Line[]; busy: boolean; p
       {busy && (
         <div className="thinking mono" aria-live="polite">
           <span className="pulse" />
-          {pending ? 'she is deciding what to say' : 'the room is working'}
+          {pending ? `${pronoun === 'he' ? 'he' : 'she'} is deciding what to say` : 'the room is working'}
         </div>
       )}
     </div>

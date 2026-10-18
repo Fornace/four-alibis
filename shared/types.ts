@@ -100,6 +100,7 @@ export type PublicSuspect = {
   colour: string
   /** css object-position tuned to each photograph */
   focus: string
+  pronoun: 'she' | 'he'
 }
 
 export const SUSPECTS: PublicSuspect[] = [
@@ -112,6 +113,7 @@ export const SUSPECTS: PublicSuspect[] = [
     portrait: '/art/nadia.webp',
     colour: '#b8603f',
     focus: '50% 0%',
+    pronoun: 'she',
   },
   {
     id: 'ellis',
@@ -122,6 +124,7 @@ export const SUSPECTS: PublicSuspect[] = [
     portrait: '/art/ellis.webp',
     colour: '#5f7d86',
     focus: '50% 0%',
+    pronoun: 'he',
   },
   {
     id: 'tobias',
@@ -132,6 +135,7 @@ export const SUSPECTS: PublicSuspect[] = [
     portrait: '/art/tobias.webp',
     colour: '#8b7f52',
     focus: '50% 10%',
+    pronoun: 'he',
   },
   {
     id: 'ines',
@@ -142,6 +146,7 @@ export const SUSPECTS: PublicSuspect[] = [
     portrait: '/art/ines.webp',
     colour: '#79607f',
     focus: '50% 2%',
+    pronoun: 'she',
   },
 ]
 

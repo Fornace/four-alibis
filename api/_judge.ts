@@ -1,6 +1,6 @@
-import type { Claim, Evidence, GameState, SuspectId } from '../shared/types'
-import { STRAIN_DELTA, contradictions } from '../shared/judge'
-import { EVIDENCE, MINDS } from './_minds'
+import type { Claim, Evidence, GameState, SuspectId } from '../shared/types.js'
+import { STRAIN_DELTA, contradictions } from '../shared/judge.js'
+import { EVIDENCE, MINDS } from './_minds.js'
 
 export const MOVES = 26
 export const SUSPECT_IDS: SuspectId[] = ['nadia', 'ellis', 'tobias', 'ines']

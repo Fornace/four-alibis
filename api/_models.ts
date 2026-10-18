@@ -1,5 +1,5 @@
-import type { ProbeKey, SuspectId } from '../shared/types'
-import { MINDS, PROBE_OPTIONS, SAW_TIME, SAW_WHO, type Option } from './_minds'
+import type { ProbeKey, SuspectId } from '../shared/types.js'
+import { MINDS, PROBE_OPTIONS, SAW_TIME, SAW_WHO, type Option } from './_minds.js'
 
 const BASE = process.env.MANTICE_BASE_URL || 'https://llm.fornace.net'
 const KEY = process.env.MANTICE_API_KEY || process.env.FORNACE_LLM_API_KEY || ''

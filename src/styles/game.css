@@ -456,12 +456,15 @@
 
 .x {
   border: 1px solid var(--rule);
+  border-left: 2px solid var(--paper-dim);
   padding: 11px 12px;
   margin-bottom: 9px;
+  background: var(--ink-2);
 }
 
 .x[data-kind='window'] {
   border-color: var(--amber);
+  border-left-width: 3px;
 }
 
 .x .tag {
