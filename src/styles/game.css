@@ -903,6 +903,10 @@
   }
   .rail {
     display: flex;
+    position: sticky;
+    top: 0;
+    z-index: 6;
+    background: var(--ink);
     border-right: 0;
     border-bottom: 1px solid var(--rule);
     overflow-x: auto;

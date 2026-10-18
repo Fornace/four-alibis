@@ -94,7 +94,9 @@ export default function App() {
         setLog((prev) => [...prev, ...lines])
         setState(res.state)
         setAccusing(false)
-        requestAnimationFrame(() => inputRef.current?.focus())
+        requestAnimationFrame(() => {
+          if (window.matchMedia('(min-width: 761px)').matches) inputRef.current?.focus()
+        })
       } catch (err) {
         setError(err instanceof Error ? err.message : 'the room did not answer')
       } finally {
