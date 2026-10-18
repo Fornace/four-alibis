@@ -1,0 +1,9 @@
+node_modules
+dist
+.env*
+.vercel
+.DS_Store
+
+# working evidence and the task brief live outside the repo
+artifacts/
+task.md
