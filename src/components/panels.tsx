@@ -97,12 +97,15 @@ export function Recorder({
   busy,
   pending,
   pronoun,
+  claims,
 }: {
   log: Line[]
   busy: boolean
   pending: string | null
   pronoun: string
+  claims: Claim[]
 }) {
+  const byId = new Map(claims.map((c) => [c.id, c]))
   return (
     <div className="stack">
       {log.length === 0 && (
@@ -166,9 +169,23 @@ export function Recorder({
               )}
             </div>
             <p className="spoken">{l.text}</p>
+            {l.claimIds.length > 0 && (
+              <p className="on-record mono-sm">
+                Recorded · {byId.get(l.claimIds[0]) ? short(byId.get(l.claimIds[0])!) : 'nothing'}
+              </p>
+            )}
           </div>
         )
       })}
+
+      {busy && pending && (
+        <div className="said me">
+          <div className="said-head">
+            <span className="mono-sm steel">You</span>
+          </div>
+          <p className="spoken">{pending}</p>
+        </div>
+      )}
 
       {busy && (
         <div className="thinking mono" aria-live="polite">
@@ -224,12 +241,18 @@ export function Record({
         )}
       </div>
 
-      {xs.length > 0 && (
-        <div className="sect">
-          <h3>
-            <span>Catch them out</span>
-            <span>{xs.length}</span>
-          </h3>
+      <div className="sect">
+        <h3>
+          <span>Catch them out</span>
+          <span>{xs.length}</span>
+        </h3>
+        {xs.length === 0 && (
+          <div className="mono-sm mute" style={{ margin: '0 0 8px', display: 'grid', gap: 6 }}>
+            <span>Press the same person twice and their story drifts.</span>
+            <span>Ask who saw whom: a witness can put someone where they deny being.</span>
+          </div>
+        )}
+        <>
           {xs.map((x) => (
             <div className="x" key={x.id} data-kind={x.kind}>
               <div className="tag">
@@ -243,8 +266,8 @@ export function Record({
               </button>
             </div>
           ))}
-        </div>
-      )}
+        </>
+      </div>
 
       <div className="sect">
         <h3>

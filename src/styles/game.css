@@ -290,6 +290,13 @@
   opacity: 0.7;
 }
 
+.on-record {
+  margin: 7px 0 0;
+  color: var(--mute);
+  border-left: 1px solid var(--rule);
+  padding-left: 8px;
+}
+
 .tell {
   width: 34px;
   height: 14px;
