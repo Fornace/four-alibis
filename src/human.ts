@@ -37,6 +37,7 @@ async function humanToken(sitekey: string, action: string): Promise<string> {
     box.style.cssText = 'position:fixed;left:50%;bottom:16px;transform:translateX(-50%);z-index:2147483647'
     document.body.appendChild(box)
     let id: string | undefined
+    let errors = 0
     const finish = (settle: () => void) => {
       try {
         if (id !== undefined) ts.remove(id)
@@ -51,7 +52,12 @@ async function humanToken(sitekey: string, action: string): Promise<string> {
       action,
       appearance: 'interaction-only',
       callback: (token: string) => finish(() => resolve(token)),
-      'error-callback': () => finish(() => reject(new Error('the human check failed, try again'))),
+      // Turnstile retries on its own; give up only after repeated failures.
+      'error-callback': () => {
+        errors += 1
+        if (errors >= 3) finish(() => reject(new Error('the human check failed, reload and try again')))
+        return true
+      },
       'timeout-callback': () => finish(() => reject(new Error('the human check timed out, try again'))),
     })
   })
