@@ -1,7 +1,8 @@
 import type { TurnRequest, TurnResponse } from '../shared/types'
+import { guardedFetch } from './human'
 
 export async function sendTurn(req: TurnRequest): Promise<TurnResponse> {
-  const res = await fetch('/api/turn', {
+  const res = await guardedFetch('/api/turn', {
     method: 'POST',
     headers: { 'content-type': 'application/json' },
     body: JSON.stringify(req),
